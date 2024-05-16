@@ -1,0 +1,10 @@
+version: '3'
+services:
+  burndown:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    volumes:
+      - ../../../LME/:/lme
