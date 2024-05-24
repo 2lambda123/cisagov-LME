@@ -32,7 +32,7 @@ class Api:
         url = f'{self.root_url}/api/kibana/management/saved_objects/_find?perPage=500&page=1&fields=id&type=dashboard&sortField=updated_at&sortOrder=desc'
 
         try:
-            response = requests.get(url, headers={'Authorization': f'Basic {self.basic_auth}'}, verify=False)
+            response = requests.get(url, headers={'Authorization': f'Basic {self.basic_auth}'}, verify=True)
 
             if response.status_code == 200:
                 data = response.json()
@@ -128,7 +128,7 @@ class Api:
             'Authorization': f'Basic {self.basic_auth}'
         }
         try:
-            response = requests.post(url, headers=headers, json=data, verify=False)
+            response = requests.post(url, headers=headers, json=data, verify=True)
 
             if response.status_code == 200:
                 return response.text
