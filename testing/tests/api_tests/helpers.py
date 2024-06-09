@@ -10,10 +10,10 @@ def make_request(url, username, password, body=None):
 
     if body:
         response = requests.post(
-            url, auth=auth, verify=False, data=json.dumps(body), headers=headers
-        )
+            url, auth=auth, verify=False, data=json.dumps(body), headers=headers, 
+        timeout=60)
     else:
-        response = requests.get(url, auth=auth, verify=False)
+        response = requests.get(url, auth=auth, verify=False, timeout=60)
 
     return response
 
